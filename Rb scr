@@ -1,0 +1,43 @@
+-- Получить игрока
+local player = game:GetService("Players").LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+
+-- Функции скрипта
+local speedButton = Instance.new("TextButton")
+speedButton.Name = "SpeedButton"
+speedButton.Size = UDim2.new(0.5, 0, 0.05, 0)
+speedButton.AnchorPoint = Vector2.new(0.5, 0.5)
+speedButton.Position = UDim2.new(0.5, 0, 0.05, 0)
+speedButton.Text = "Супер скорость"
+
+local jumpButton = Instance.new("TextButton")
+jumpButton.Name = "JumpButton"
+jumpButton.Size = UDim2.new(0.5, 0, 0.05, 0)
+jumpButton.AnchorPoint = Vector2.new(0.5, 0.5)
+jumpButton.Position = UDim2.new(0.5, 0, 0.1, 0)
+jumpButton.Text = "Супер прыжок"
+
+local flyButton = Instance.new("TextButton")
+flyButton.Name = "FlyButton"
+flyButton.Size = UDim2.new(0.5, 0, 0.05, 0)
+flyButton.AnchorPoint = Vector2.new(0.5, 0.5)
+flyButton.Position = UDim2.new(0.5, 0, 0.15, 0)
+flyButton.Text = "Летание"
+
+-- Обработка событий кнопок
+speedButton.MouseButton1Click:Connect(function()
+    character:SetAttribute("WalkSpeed", 20)
+end)
+
+jumpButton.MouseButton1Click:Connect(function()
+    character:SetAttribute("JumpPower", 20)
+end)
+
+flyButton.MouseButton1Click:Connect(function()
+    character.HumanoidRootPart.Anchored = false
+end)
+
+-- Добавление кнопок в игру
+player:AddChild(speedButton)
+player:AddChild(jumpButton)
+player:AddChild(flyButton)
