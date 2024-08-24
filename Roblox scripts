@@ -1,8 +1,8 @@
 -- Получить игрока
 local player = game:GetService("Players").LocalPlayer
 
--- Установить скорость игрока на 10
-player:SetAttribute("WalkSpeed", 10)
+-- Установить скорость игрока на 90
+player:SetAttribute("WalkSpeed", 90)
 
 -- Установить высоту прыжка игрока на 5
 player:SetAttribute("JumpPower", 5)
